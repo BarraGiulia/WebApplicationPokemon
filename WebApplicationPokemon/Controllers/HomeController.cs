@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplicationPokemon.Models;
+using System.Collections.Generic; // Aggiungi questa riga
 
 namespace WebApplicationPokemon.Controllers
 {
@@ -15,7 +16,9 @@ namespace WebApplicationPokemon.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // Aggiungi qui una lista di Pokémon da passare alla vista
+            var pokemonList = new List<string> { "Pikachu", "Bulbasaur", "Charmander", "Squirtle" };
+            return View(pokemonList); // Passa la lista alla vista
         }
 
         public IActionResult Privacy()
