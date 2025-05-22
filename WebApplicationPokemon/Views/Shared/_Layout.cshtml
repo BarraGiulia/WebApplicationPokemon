@@ -8,18 +8,34 @@
     <link rel="stylesheet" href="~/WebApplicationPokemon.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="d-flex justify-content-between align-items-center px-4 py-2 border-bottom shadow-sm bg-white">
-        <nav class="d-flex gap-3">
-            <a asp-controller="Gym" asp-action="Index" class="btn btn-outline-primary fw-semibold">Palestre</a>
-            <a asp-controller="Trainer" asp-action="Index" class="btn btn-outline-primary fw-semibold">Allenatori</a>
-            <a asp-controller="Pokemon" asp-action="Index" class="btn btn-outline-primary fw-semibold">Pokémon</a>
-        </nav>
+    <header class="d-flex justify-content-between align-items-center px-4 py-2 border-bottom shadow-sm bg-dark">
+        <div>
+            <a href="@Url.Action("Index", "Home")"
+               class="btn rounded-pill"
+               style="background-color: #f0f0f0; color: #333; border: 1px solid #ccc; padding: 0.4rem 1.2rem; font-weight: 600;">
+                Home
+            </a>
+        </div>
+
+        <form class="d-flex mx-auto" method="get" asp-controller="Gym" asp-action="Index" role="search" style="max-width: 400px; width: 100%;">
+            <input name="searchTerm" class="form-control rounded-pill me-2" type="search" placeholder="Cerca palestre..." aria-label="Search" />
+            <button class="btn btn-outline-light rounded-pill px-3" type="submit">Cerca</button>
+        </form>
 
         <div>
-            <a asp-controller="Account" asp-action="Login" class="btn btn-primary me-2 px-4">Accedi</a>
-            <a asp-controller="Account" asp-action="Register" class="btn btn-secondary px-4">Registrati</a>
+            <a href="@Url.Action("Login", "Account")"
+               class="btn rounded-pill me-2"
+               style="background-color: #f0f0f0; color: #333; border: 1px solid #ccc; padding: 0.4rem 1.2rem; font-weight: 600;">
+                Accedi
+            </a>
+            <a href="@Url.Action("Register", "Account")"
+               class="btn rounded-pill"
+               style="background-color: #f0f0f0; color: #333; border: 1px solid #ccc; padding: 0.4rem 1.2rem; font-weight: 600;">
+                Registrati
+            </a>
         </div>
     </header>
+
 
     <div class="container">
         <main role="main" class="pb-3">
