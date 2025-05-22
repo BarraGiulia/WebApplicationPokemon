@@ -9,31 +9,23 @@
 </head>
 <body>
     <header class="d-flex justify-content-between align-items-center px-4 py-2 border-bottom shadow-sm bg-white">
-        <nav class="d-flex gap-4">
-            <a asp-controller="Gym" asp-action="Index" class="text-decoration-none text-dark fw-semibold">Palestre</a>
-            <a asp-controller="Trainer" asp-action="Index" class="text-decoration-none text-dark fw-semibold">Allenatori</a>
-            <a asp-controller="Pokemon" asp-action="Index" class="text-decoration-none text-dark fw-semibold">Pokémon</a>
+        <nav class="d-flex gap-3">
+            <a asp-controller="Gym" asp-action="Index" class="btn btn-outline-primary fw-semibold">Palestre</a>
+            <a asp-controller="Trainer" asp-action="Index" class="btn btn-outline-primary fw-semibold">Allenatori</a>
+            <a asp-controller="Pokemon" asp-action="Index" class="btn btn-outline-primary fw-semibold">Pokémon</a>
         </nav>
+
         <div>
-            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary me-2 px-4">Accedi</a>
-            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary me-2 px-4">Registrati</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary me-2 px-4">Accedi</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-secondary px-4">Registrati</a>
         </div>
     </header>
-
-
 
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <!-- Footer rimosso o personalizzabile -->
-    @* <footer class="border-top footer text-muted">
-    <div class="container">
-    &copy; 2025 - WebApplicationPokemon - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-    </footer> *@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

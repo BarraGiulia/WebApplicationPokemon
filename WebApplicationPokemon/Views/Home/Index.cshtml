@@ -146,6 +146,27 @@
                 border-color: #aaa; /* Bordo che diventa grigio più scuro */
             }
 
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 2px;
+            background-color: #999;
+            border: none;
+            opacity: 0.6;
+        }
+
+        .divider-text {
+            font-size: 1.5rem;
+            color: #ccc;
+            text-shadow: 1px 1px 3px black;
+        }
+
 
     }
 </style>
@@ -157,12 +178,6 @@
 </head>
 <body>
 
-    <!-- Navbar semplificata (puoi aggiungere link dopo) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#"> </a>
-        </div>
-    </nav>
 
     <!-- Carosello con immagini e titoli/descrizioni delle regioni -->
     <div id="titleCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -253,6 +268,12 @@
         </button>
     </div>
 
+    <div class="section-divider my-5">
+        <hr class="divider-line">
+        <span class="divider-text">★</span>
+        <hr class="divider-line">
+    </div>
+
 
     <!-- Sezione centrale (sotto il titolo) -->
     <div class="container my-5">
@@ -293,6 +314,50 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="section-divider my-5">
+        <hr class="divider-line">
+        <span class="divider-text">★</span>
+        <hr class="divider-line">
+    </div>
+
+
+    <div class="container my-5">
+
+        <!-- Opzione 1 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-4">
+                <img src="/images/opzione1.jpg" alt="Opzione 1" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-light fw-bold">Titolo Opzione 1</h3>
+                <p class="text-light">Descrizione dettagliata dell'opzione 1. Puoi scrivere qui ciò che desideri.</p>
+            </div>
+        </div>
+
+        <!-- Opzione 2 -->
+        <div class="row align-items-center mb-5 flex-md-row-reverse">
+            <div class="col-md-4">
+                <img src="/images/opzione2.jpg" alt="Opzione 2" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-light fw-bold">Titolo Opzione 2</h3>
+                <p class="text-light">Descrizione dettagliata dell'opzione 2. Inserisci qui il tuo testo.</p>
+            </div>
+        </div>
+
+        <!-- Opzione 3 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-4">
+                <img src="/images/opzione3.jpg" alt="Opzione 3" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-light fw-bold">Titolo Opzione 3</h3>
+                <p class="text-light">Descrizione dettagliata dell'opzione 3. Personalizza questo spazio come vuoi.</p>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer semplice -->
