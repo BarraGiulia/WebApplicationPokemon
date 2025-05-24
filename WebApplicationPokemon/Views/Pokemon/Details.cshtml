@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Dettagli Pokémon";
+
+    var pokemon = new
+    {
+        Nome = "Pikachu",
+        Tipo = "Elettro",
+        Livello = 25,
+        Trainer = "Ash Ketchum"
+    };
 }
+
+<div class="container py-5 text-white">
+    <h2 class="text-center mb-4">Dettagli Pokémon</h2>
+
+    <div class="card bg-dark border-light shadow rounded-4 p-4">
+        <h3>@pokemon.Nome</h3>
+        <p><strong>Tipo:</strong> @pokemon.Tipo</p>
+        <p><strong>Livello:</strong> @pokemon.Livello</p>
+        <p><strong>Allenatore:</strong> @pokemon.Trainer</p>
+
+        <div class="mt-4">
+            <a class="btn btn-secondary rounded-pill" href="#">Torna indietro</a>
+        </div>
+    </div>
+</div>
