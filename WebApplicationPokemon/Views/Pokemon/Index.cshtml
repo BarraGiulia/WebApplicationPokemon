@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Pokémon";
+
+    var pokemons = new List<dynamic> {
+        new { Nome = "Pikachu", Tipo = "Elettro", Livello = 25, Trainer = "Ash" },
+        new { Nome = "Bulbasaur", Tipo = "Erba", Livello = 20, Trainer = "Ash" },
+        new { Nome = "Charmander", Tipo = "Fuoco", Livello = 18, Trainer = "Ash" }
+    };
+}
+
+<div class="container py-5">
+    <h2 class="text-white fw-bold mb-4 text-center">Lista Pokémon</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success rounded-pill fw-semibold" href="#">Aggiungi Pokémon</a>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var pokemon in pokemons)
+        {
+            <div class="col-md-4">
+                <div class="card bg-dark text-white border-light shadow rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning">@pokemon.Nome</h5>
+                        <p><strong>Tipo:</strong> @pokemon.Tipo</p>
+                        <p><strong>Livello:</strong> @pokemon.Livello</p>
+                        <p><strong>Allenatore:</strong> @pokemon.Trainer</p>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <a class="btn btn-primary rounded-pill" href="#">Dettagli</a>
+                            <a class="btn btn-warning rounded-pill" href="#">Modifica</a>
+                            <a class="btn btn-danger rounded-pill" href="#">Elimina</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

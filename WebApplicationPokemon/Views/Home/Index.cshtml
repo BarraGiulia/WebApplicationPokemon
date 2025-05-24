@@ -1,8 +1,376 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Stili personalizzati opzionali -->
+   <style>
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .titolo-personalizzato {
+            color: #d3d3d3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+
+
+        /* Card personalizzate */
+        .card {
+            background-color: rgba(255, 255, 255, 0.07); /* più opaco ma non troppo chiaro */
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(3px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .card .card-title,
+            .card .card-text {
+                color: #d3d3d3; /* Grigio chiaro */
+            }
+
+            .card .card-title {
+                color: #d3d3d3 !important;
+            }
+
+
+            /* Hover effetto */
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Pulsanti */
+            .card .btn-warning {
+                font-weight: 600;
+                transition: background-color 0.3s ease;
+            }
+
+                .card .btn-warning:hover {
+                    background-color: #e0a800;
+                    color: #fff;
+                }
+        body {
+            background-color: rgba(30, 30, 30, 0.85);
+            color: #f5f5f5;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .title-header {
+            color: #ff7f50;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            font-family: 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .title-header {
+            color: #ff7f50; /* un arancio corallo caldo */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            font-family: 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+        }
+
+
+    /* Altezza del carosello */
+    .carousel-item {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+
+        }
+
+
+    /* Immagini larghe, spostate leggermente in basso */
+    .carousel-item img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center 20%; /* Qui regoli quanto sposti l'immagine verso il basso */
+
+    }
+
+
+        .carousel-caption.bottom-caption {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.7); /* barra nera trasparente a tutta larghezza */
+            text-align: center;
+        }
+
+            .carousel-caption.bottom-caption h1 {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                color: #fff !important; /* titolo bianco per massima visibilità */
+                text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+            }
+
+            .carousel-caption.bottom-caption p {
+                font-size: 1.1rem;
+                color: #ddd;
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+            }
+
+
+    /* Frecce ai lati visibili */
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: drop-shadow(0 0 5px black);
+        width: 3rem;
+        height: 3rem;
+    }
+
+        .btn {
+            background-color: white; /* Sfondo bianco per entrambi i pulsanti */
+            color: #333; /* Testo scuro (puoi usare anche 'black' o altre tonalità scure) */
+            border: 2px solid #ccc; /* Bordo grigio chiaro */
+            border-radius: 30px;
+            transition: all 0.3s ease; /* Transizione fluida */
+        }
+
+            .btn:hover {
+                background-color: #f0f0f0; /* Sfondo grigio chiaro al passaggio del mouse */
+                color: #333; /* Testo scuro, se vuoi cambiarlo puoi anche farlo */
+                border-color: #aaa; /* Bordo che diventa grigio più scuro */
+            }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 2px;
+            background-color: #999;
+            border: none;
+            opacity: 0.6;
+        }
+
+        .divider-text {
+            font-size: 1.5rem;
+            color: #ccc;
+            text-shadow: 1px 1px 3px black;
+        }
+
+
+    }
+</style>
+    <div class="container text-center my-4">
+        <h1 class="display-3 fw-bold title-header">Palestre Pokémon</h1>
+    </div>
+
+
+</head>
+<body>
+
+
+
+    <!-- Carosello con immagini e titoli/descrizioni delle regioni -->
+    <div id="titleCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <!-- Regione Kanto -->
+            <div class="carousel-item active">
+                <img src="/images/kanto.jpg" class="d-block w-100 img-fluid" alt="Kanto">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 class="text-danger">Regione di Kanto</h1>
+                    <p>Kanto è la prima regione del mondo Pokémon, introdotta nei giochi Rosso e Blu. Include otto palestre, città iconiche come Celestopoli e Smeraldopoli, e Pokémon leggendari come Articuno, Zapdos e Moltres.</p>
+                </div>
+            </div>
+
+            <!-- Regione Johto -->
+            <div class="carousel-item">
+                <img src="/images/johto.jpg" class="d-block w-100 img-fluid" alt="Johto">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 style="color:#8b4513;">Regione di Johto</h1>
+                    <p>Johto è la seconda regione del mondo Pokémon, introdotta nei giochi Oro e Argento. È conosciuta per le sue tradizioni antiche, i paesaggi naturali e città come Amarantopoli e Fiorpescopoli. Anche qui ci sono otto palestre da sfidare e Pokémon leggendari come Ho-Oh, Lugia e i tre cani leggendari: Raikou, Entei e Suicune.</p>
+                </div>
+            </div>
+
+            <!-- Regione Hoenn -->
+            <div class="carousel-item">
+                <img src="/images/hoenn.jpg" class="d-block w-100 img-fluid" alt="Hoenn">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 class="text-success">Regione di Hoenn</h1>
+                    <p>Hoenn è la terza regione del mondo Pokémon, introdotta nei giochi Rubino e Zaffiro. È caratterizzata da un clima tropicale, tante isole e una grande varietà di ambienti naturali. Le città principali includono Porto Selcepoli e Ciclamipoli. I Pokémon leggendari della regione sono Groudon, Kyogre e Rayquaza.</p>
+                </div>
+            </div>
+
+            <!-- Regione Sinnoh -->
+            <div class="carousel-item">
+                <img src="/images/sinnoh.jpg" class="d-block w-100 img-fluid" alt="Sinnoh">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 class="text-primary">Regione di Sinnoh</h1>
+                    <p>Sinnoh è la quarta regione del mondo Pokémon, introdotta nei giochi Diamante e Perla. È nota per le sue montagne, in particolare il Monte Corona, e per il clima più freddo rispetto ad altre regioni. Tra le città principali ci sono Evopoli e Nevepoli. I Pokémon leggendari includono Dialga, Palkia e Giratina..</p>
+                </div>
+            </div>
+
+            <!-- Regione Unova -->
+            <div class="carousel-item">
+                <img src="/images/unova.jpg" class="d-block w-100 img-fluid" alt="Unima">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 style="color:#663399;">Regione di Unova</h1>
+                    <p>Unova è la quinta regione del mondo Pokémon, introdotta nei giochi Nero e Bianco. È ispirata alla città di New York e presenta un ambiente moderno e urbano, con città come Striaton City e Accademia Bianca. I Pokémon leggendari della regione sono Reshiram, Zekrom e Kyurem.</p>
+                </div>
+            </div>
+
+            <!-- Regione Kalos -->
+            <div class="carousel-item">
+                <img src="/images/kalos.jpg" class="d-block w-100 img-fluid" alt="Kalos">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 class="text-info">Regione di Kalos</h1>
+                    <p>Kalos è la sesta regione del mondo Pokémon, introdotta nei giochi X e Y. Ispirata alla Francia, Kalos è famosa per la sua bellezza paesaggistica, con città eleganti come Lumiose City e una forte influenza culturale. I Pokémon leggendari della regione sono Xerneas, Yveltal e Zygarde.</p>
+                </div>
+            </div>
+
+            <!-- Regione Alola -->
+            <div class="carousel-item">
+                <img src="/images/alola.jpg" class="d-block w-100 img-fluid" alt="Alola">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 style="color:#ffa500;">Regione di Alola</h1>
+                    <p>Alola è la settima regione del mondo Pokémon, introdotta nei giochi Sole e Luna. Ispirata alle Hawaii, Alola è caratterizzata da un clima tropicale, spiagge paradisiache e una cultura unica. Le sue isole ospitano Pokémon leggendari come Solgaleo, Lunala e Necrozma.</p>
+                </div>
+            </div>
+
+            <!-- Regione Galar -->
+            <div class="carousel-item">
+                <img src="/images/galar.jpg" class="d-block w-100 img-fluid" alt="Galar">
+                <div class="carousel-caption bottom-caption bg-dark bg-opacity-50 rounded p-3">
+                    <h1 style="color:#dc143c;">Regione di Galar</h1>
+                    <p>Galar è l'ottava regione del mondo Pokémon, introdotta nei giochi Spada e Scudo. Ispirata alla Gran Bretagna, Galar presenta paesaggi vari, dalle campagne alle città industrializzate, con una forte enfasi sulle tradizioni e lo sport. I Pokémon leggendari della regione sono Zacian, Zamacenta e Eternatus..</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Frecce di navigazione -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#titleCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Precedente</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#titleCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Successiva</span>
+        </button>
+    </div>
+
+    <div class="section-divider my-5">
+        <hr class="divider-line">
+        <span class="divider-text">★</span>
+        <hr class="divider-line">
+    </div>
+
+
+    <!-- Sezione centrale (sotto il titolo) -->
+    <div class="container my-5">
+        <p class="fs-5 text-center"> </p>
+        <p class="text-center"> </p>
+    </div>
+    <div class="container my-5">
+        <h2 class="text-center mb-4 fw-bold" style="color: #d3d3d3;">Inizia la tua avventura</h2>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Palestre</h5>
+                        <p class="card-text">Iscriviti e aggiungi tutte le palestre che hai visitato e sfidato!</p>
+                        <img src="/images/palestra.png" alt="Icona Palestra" class="img-fluid my-3 mx-auto d-block" style="max-height: 100px;">
+                        <a href="/Gym/Index" class="btn btn-warning">Vai</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Allenatori</h5>
+                        <p class="card-text">Visualizza gli allenatori di tutte le regioni, insieme ai loro Pokémon unici!.</p>
+                        <img src="/images/allenatore.png" alt="Icona Palestra" class="img-fluid my-3 mx-auto d-block" style="max-height: 100px;">
+                        <a href="/Trainer/Index" class="btn btn-warning">Scopri</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100 border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Pokémon</h5>
+                        <p class="card-text">Consulta l'elenco dei Pokémon che compongono le palestre, insieme alle loro informazioni!.</p>
+                        <img src="/images/pokemon.png" alt="Icona Palestra" class="img-fluid my-3 mx-auto d-block" style="max-height: 100px;">
+                        <a href="/Pokemon/Index" class="btn btn-warning">Esplora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider my-5">
+        <hr class="divider-line">
+        <span class="divider-text">★</span>
+        <hr class="divider-line">
+    </div>
+
+
+    <div class="container my-5">
+
+        <!-- Opzione 1 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-4">
+                <img src="/images/opzione1.jpg" alt="Opzione 1" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-light fw-bold">A Cosa Serve?</h3>
+                <p class="text-light">Diventare campioni del mondo Pokémon è una sfida emozionante, ma durante il percorso si affrontano così tante palestre che è facile dimenticare quali abbiamo già sfidato e con quali Pokémon. Ogni battaglia è unica e ogni palestra ha il suo assortimento di sfide e avversari. Per non perdere il filo di tutte le tue esperienze, segna qui ogni palestra che hai affrontato, i Pokémon con cui ti sei battuto e tutte le informazioni importanti. In alternativa, puoi visualizzare le sfide che altri allenatori hanno condiviso per scoprire come si sono preparati per diventare i migliori!</p>
+            </div>
+        </div>
+
+        <!-- Opzione 2 -->
+        <div class="row align-items-center mb-5 flex-md-row-reverse">
+            <div class="col-md-4">
+                <img src="/images/opzione2.jpg" alt="Opzione 2" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-light fw-bold">Un Nuovo Mondo</h3>
+                <p class="text-light">Molti di noi usano i Pokémon per faccende quotidiane o lavori normali, ma per allenatori come voi, tenere traccia di tutto ciò che avete fatto può rivelarsi una scelta molto saggia. Non solo vi aiuta a ricordare le vostre battaglie passate, ma può anche rivelarsi fondamentale per migliorare le strategie del vostro team e affrontare al meglio ogni ostacolo che si presenterà. Annotare le esperienze, le palestre sfidate e i Pokémon utilizzati vi permette di analizzare i punti di forza e le debolezze del vostro gruppo, preparandovi con maggiore consapevolezza per le sfide future..</p>
+            </div>
+        </div>
+
+        <!-- Opzione 3 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-4">
+                <img src="/images/opzione3.jpg" alt="Opzione 3" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-light fw-bold">Palestre Più Famose</h3>
+                <p class="text-light">Tra tutte le palestre, alcune sono ovviamente più famose e frequentate, mentre altre restano meno conosciute. Perché non scoprire quale palestra ha ricevuto più iscrizioni? Potresti trovare nuove sfide o semplicemente curiosare tra le preferite degli altri allenatori!.</p>
+            </div>
+        </div>
+
+    </div>
+
+  
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
