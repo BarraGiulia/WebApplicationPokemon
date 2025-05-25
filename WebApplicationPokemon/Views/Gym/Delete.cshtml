@@ -1,0 +1,21 @@
+﻿@model WebApplicationPokemon.Models.Gym
+
+@{
+    ViewData["Title"] = "Elimina Palestra";
+}
+
+<h2 class="text-white mb-4">Elimina Palestra</h2>
+
+<div class="text-white">
+    <h4>Sei sicuro di voler eliminare questa palestra?</h4>
+
+    <p><strong>Nome:</strong> @Model.Nome</p>
+    <p><strong>Città:</strong> @Model.Citta</p>
+    <p><strong>Allenatori:</strong> @Model.Trainers.Count()</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger rounded-pill">Elimina</button>
+        <a asp-action="Index" class="btn btn-secondary rounded-pill ms-2">Annulla</a>
+    </form>
+</div>

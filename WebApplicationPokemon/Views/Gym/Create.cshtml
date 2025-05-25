@@ -1,14 +1,12 @@
 ﻿@model WebApplicationPokemon.Models.Gym
 
 @{
-    ViewData["Title"] = "Modifica Palestra";
+    ViewData["Title"] = "Aggiungi Palestra";
 }
 
-<h2 class="text-white mb-4">Modifica Palestra</h2>
+<h2 class="text-white mb-4">Aggiungi Palestra</h2>
 
-<form asp-action="Edit" method="post" class="text-white">
-    <input type="hidden" asp-for="Id" />
-
+<form asp-action="Create" method="post" class="text-white">
     <div class="mb-3">
         <label asp-for="Nome" class="form-label"></label>
         <input asp-for="Nome" class="form-control" />
@@ -20,7 +18,7 @@
         <span asp-validation-for="Citta" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-warning rounded-pill">Salva</button>
+    <button type="submit" class="btn btn-success rounded-pill">Salva</button>
     <a asp-action="Index" class="btn btn-secondary rounded-pill ms-2">Annulla</a>
 </form>
 

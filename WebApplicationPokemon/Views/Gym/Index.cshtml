@@ -1,13 +1,14 @@
 ﻿@model List<WebApplicationPokemon.Models.Gym>
+
 @{
-    ViewData["Title"] = "Pokémon Gyms";
+    ViewData["Title"] = "Palestre Pokémon";
 }
 
 <div class="container py-5">
-    <h2 class="text-white fw-bold mb-4 text-center">Pokémon Gyms</h2>
+    <h2 class="text-white fw-bold mb-4 text-center">Palestre Pokémon</h2>
 
     <div class="d-flex justify-content-end mb-3">
-        <a class="btn btn-success rounded-pill fw-semibold" href="/Gym/Add">Add Gym</a>
+        <a class="btn btn-success rounded-pill fw-semibold" href="@Url.Action("Create", "Gym")">Aggiungi Palestra</a>
     </div>
 
     <div class="row g-4">
@@ -17,13 +18,13 @@
                 <div class="card bg-dark text-white border-light shadow rounded-4">
                     <div class="card-body">
                         <h5 class="card-title text-warning">@gym.Nome</h5>
-                        <p><strong>City:</strong> @gym.Citta</p>
-                        <p><strong>Trainers:</strong> @gym.Trainers</p>
+                        <p><strong>Città:</strong> @gym.Citta</p>
+                        <p><strong>Allenatori:</strong> @gym.Trainers.Count()</p>
 
                         <div class="d-flex gap-2 mt-3">
-                            <a class="btn btn-primary rounded-pill" href="/Gym/Details/@gym.Id">Details</a>
-                            <a class="btn btn-warning rounded-pill" href="/Gym/Edit/@gym.Id">Edit</a>
-                            <a class="btn btn-danger rounded-pill" href="/Gym/Delete/@gym.Id">Delete</a>
+                            <a class="btn btn-primary rounded-pill" href="@Url.Action("Details", "Gym", new { id = gym.Id })">Dettagli</a>
+                            <a class="btn btn-warning rounded-pill" href="@Url.Action("Edit", "Gym", new { id = gym.Id })">Modifica</a>
+                            <a class="btn btn-danger rounded-pill" href="@Url.Action("Delete", "Gym", new { id = gym.Id })">Elimina</a>
                         </div>
                     </div>
                 </div>

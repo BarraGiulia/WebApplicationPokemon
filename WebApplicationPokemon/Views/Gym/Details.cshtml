@@ -1,13 +1,15 @@
 ﻿@model WebApplicationPokemon.Models.Gym
+
 @{
-    ViewData["Title"] = "Gym Details";
+    ViewData["Title"] = "Dettagli Palestra";
 }
 
-<h2>@Model.Nome</h2>
+<h2 class="text-white mb-4">Dettagli Palestra</h2>
 
-<ul>
-    <li><strong>City:</strong> @Model.Citta</li>
-    <li><strong>Trainers:</strong> @Model.Trainers</li>
-</ul>
+<div class="text-white">
+    <p><strong>Nome:</strong> @Model.Nome</p>
+    <p><strong>Città:</strong> @Model.Citta</p>
+    <p><strong>Allenatori:</strong> @Model.Trainers.Count()</p>
+</div>
 
-<a class="btn btn-secondary" href="/Gym/Index">Back</a>
+<a asp-action="Index" class="btn btn-primary rounded-pill mt-3">Torna alla lista</a>
