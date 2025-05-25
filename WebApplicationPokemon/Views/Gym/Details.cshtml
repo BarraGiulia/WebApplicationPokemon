@@ -1,24 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Dettagli Palestra";
-
-    var gym = new
-    {
-        Nome = "Palestra di Pewter",
-        Citta = "Pewter",
-        Allenatori = 2
-    };
+﻿@model WebApplicationPokemon.Models.Gym
+@{
+    ViewData["Title"] = "Gym Details";
 }
 
-<div class="container py-5 text-white">
-    <h2 class="text-center mb-4">Dettagli Palestra</h2>
+<h2>@Model.Nome</h2>
 
-    <div class="card bg-dark border-light shadow rounded-4 p-4">
-        <h3>@gym.Nome</h3>
-        <p><strong>Città:</strong> @gym.Citta</p>
-        <p><strong>Allenatori:</strong> @gym.Allenatori</p>
+<ul>
+    <li><strong>City:</strong> @Model.Citta</li>
+    <li><strong>Trainers:</strong> @Model.Trainers</li>
+</ul>
 
-        <div class="mt-4">
-            <a class="btn btn-secondary rounded-pill" href="#">Torna indietro</a>
-        </div>
-    </div>
-</div>
+<a class="btn btn-secondary" href="/Gym/Index">Back</a>
