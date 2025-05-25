@@ -8,5 +8,6 @@ namespace WebApplicationPokemon.Controllers
         {
             return View();
         }
+
     }
 }
