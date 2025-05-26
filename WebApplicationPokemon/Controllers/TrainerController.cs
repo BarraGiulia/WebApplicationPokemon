@@ -76,10 +76,12 @@ namespace WebApplicationPokemon.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             var trainer = trainers.FirstOrDefault(t => t.Id == id);
             if (trainer == null) return NotFound();
+
             trainers.Remove(trainer);
             return RedirectToAction("Index");
         }
