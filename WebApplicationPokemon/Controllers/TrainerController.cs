@@ -31,9 +31,10 @@ namespace WebApplicationPokemon.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Trainer trainer)
+        public IActionResult Create(Trainer trainer, int NumeroPokemons)
         {
             trainer.Id = trainers.Max(t => t.Id) + 1;
+            trainer.Pokemons = Enumerable.Range(1, NumeroPokemons).Select(i => new Pokemon()).ToList();
             trainers.Add(trainer);
             return RedirectToAction("Index");
         }
@@ -46,7 +47,7 @@ namespace WebApplicationPokemon.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Trainer trainer)
+        public IActionResult Edit(Trainer trainer, int NumeroPokemons)
         {
             var existing = trainers.FirstOrDefault(t => t.Id == trainer.Id);
             if (existing == null) return NotFound();
@@ -55,8 +56,17 @@ namespace WebApplicationPokemon.Controllers
             existing.Eta = trainer.Eta;
             existing.Citta = trainer.Citta;
             existing.Gym = trainer.Gym;
+
+            // Aggiorna il numero di Pokémon
+            int diff = NumeroPokemons - existing.Pokemons.Count;
+            if (diff > 0)
+                existing.Pokemons = trainer.Pokemons.ToList();
+            else if (diff < 0)
+                existing.Pokemons = existing.Pokemons.Take(NumeroPokemons).ToList();
+
             return RedirectToAction("Index");
         }
+
 
         public IActionResult Delete(int id)
         {
