@@ -14,10 +14,21 @@ namespace WebApplicationPokemon.Controllers
             new Gym { Id = 3, Nome = "Palestra di Vermilion", Citta = "Vermilion", Trainers = new List<Trainer> { new Trainer() } }
         };
 
-        public IActionResult Index()
+        public IActionResult Index(string searchTerm)
         {
-            return View(gyms);
+            var filteredGyms = gyms;
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower();
+                filteredGyms = gyms
+                    .Where(g => g.Nome.ToLower().Contains(searchTerm) || g.Citta.ToLower().Contains(searchTerm))
+                    .ToList();
+            }
+
+            return View(filteredGyms);
         }
+
 
         public IActionResult Details(int id)
         {
