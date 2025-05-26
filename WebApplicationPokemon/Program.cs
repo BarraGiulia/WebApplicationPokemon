@@ -16,7 +16,10 @@ builder.Services.AddSession();
 builder.Services.AddDistributedMemoryCache(); // necessario per la sessione
 builder.Services.AddHttpContextAccessor(); // prima di builder.Build()
 
-
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5002); // Aggiunto per IP LAN su porta 5002
+});
 
 var app = builder.Build();
 
