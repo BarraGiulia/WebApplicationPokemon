@@ -2,17 +2,17 @@
     ViewData["Title"] = "Allenatori Pokémon";
 
     var trainers = new List<dynamic> {
-        new { Nome = "Ash", Eta = 10, Citta = "Pallet Town", Gym = "Verde", Pokemons = 3 },
-        new { Nome = "Misty", Eta = 12, Citta = "Cerulean", Gym = "Acqua", Pokemons = 4 },
-        new { Nome = "Brock", Eta = 15, Citta = "Pewter", Gym = "Roccia", Pokemons = 2 }
-    };
+    new { Id = 1, Nome = "Ash", Eta = 10, Citta = "Pallet Town", Gym = "Verde", Pokemons = 3 },
+    new { Id = 2, Nome = "Misty", Eta = 12, Citta = "Cerulean", Gym = "Acqua", Pokemons = 4 },
+    new { Id = 3, Nome = "Brock", Eta = 15, Citta = "Pewter", Gym = "Roccia", Pokemons = 2 }
+};
 }
 
 <div class="container py-5">
     <h2 class="text-white fw-bold mb-4 text-center">Allenatori Pokémon</h2>
 
     <div class="d-flex justify-content-end mb-3">
-        <a class="btn btn-success rounded-pill fw-semibold" href="#">Aggiungi Allenatore</a>
+        <a class="btn btn-success rounded-pill fw-semibold" asp-action="Create">Aggiungi Allenatore</a>
     </div>
 
     <div class="row g-4">
@@ -28,9 +28,9 @@
                         <p><strong>Pokémon:</strong> @trainer.Pokemons</p>
 
                         <div class="d-flex gap-2 mt-3">
-                            <a class="btn btn-primary rounded-pill" href="#">Dettagli</a>
-                            <a class="btn btn-warning rounded-pill" href="#">Modifica</a>
-                            <a class="btn btn-danger rounded-pill" href="#">Elimina</a>
+                            <a class="btn btn-primary rounded-pill" asp-action="Details" asp-route-id="@trainer.Id">Dettagli</a>
+                            <a class="btn btn-warning rounded-pill" asp-action="Edit" asp-route-id="@trainer.Id">Modifica</a>
+                            <a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@trainer.Id">Elimina</a>
                         </div>
                     </div>
                 </div>
