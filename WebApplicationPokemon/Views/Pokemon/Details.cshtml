@@ -1,26 +1,20 @@
-﻿@{
-    ViewData["Title"] = "Dettagli Pokémon";
+﻿@model WebApplicationPokemon.Models.Pokemon
 
-    var pokemon = new
-    {
-        Nome = "Pikachu",
-        Tipo = "Elettro",
-        Livello = 25,
-        Trainer = "Ash Ketchum"
-    };
+@{
+    ViewData["Title"] = "Dettagli Pokémon";
 }
 
 <div class="container py-5 text-white">
     <h2 class="text-center mb-4">Dettagli Pokémon</h2>
 
     <div class="card bg-dark border-light shadow rounded-4 p-4">
-        <h3>@pokemon.Nome</h3>
-        <p><strong>Tipo:</strong> @pokemon.Tipo</p>
-        <p><strong>Livello:</strong> @pokemon.Livello</p>
-        <p><strong>Allenatore:</strong> @pokemon.Trainer</p>
+        <h3>@Model.Nome</h3>
+        <p><strong>Tipo:</strong> @Model.Tipo</p>
+        <p><strong>Livello:</strong> @Model.Livello</p>
+        <p><strong>Allenatore:</strong> @Model.Trainer?.Nome</p>
 
         <div class="mt-4">
-            <a class="btn btn-secondary rounded-pill" href="#">Torna indietro</a>
+            <a class="btn btn-secondary rounded-pill" href="/Pokemon">Torna indietro</a>
         </div>
     </div>
 </div>

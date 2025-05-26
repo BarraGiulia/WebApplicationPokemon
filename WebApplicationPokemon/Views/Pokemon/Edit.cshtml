@@ -1,0 +1,31 @@
+﻿@model WebApplicationPokemon.Models.Pokemon
+
+@{
+    ViewData["Title"] = "Modifica Pokémon";
+}
+
+<div class="container py-5 text-white">
+    <h2 class="text-center mb-4">Modifica Pokémon</h2>
+
+    <form method="post" class="bg-dark p-4 rounded shadow">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label>Nome</label>
+            <input asp-for="Nome" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Tipo</label>
+            <input asp-for="Tipo" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Livello</label>
+            <input asp-for="Livello" type="number" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Allenatore</label>
+            <input asp-for="Trainer.Nome" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary rounded-pill">Salva</button>
+        <a href="/Pokemon" class="btn btn-secondary rounded-pill ms-2">Annulla</a>
+    </form>
+</div>

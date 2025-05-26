@@ -1,0 +1,14 @@
+﻿@model WebApplicationPokemon.Models.Trainer
+@{
+    ViewData["Title"] = "Conferma Eliminazione";
+}
+
+<div class="container text-white">
+    <h2>Vuoi davvero eliminare l'allenatore @Model.Nome?</h2>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Sì, elimina</button>
+        <a asp-action="Index" class="btn btn-secondary">Annulla</a>
+    </form>
+</div>
