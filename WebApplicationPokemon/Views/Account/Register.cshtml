@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Registrati";
+}
+
+<h2 class="text-center mt-4">Crea un nuovo account</h2>
+
+<form method="post" asp-action="Register" asp-controller="Account" class="w-50 mx-auto mt-4">
+    <div class="mb-3">
+        <label for="username" class="form-label">Nome utente</label>
+        <input type="text" class="form-control" id="username" name="username" required maxlength="20" />
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required maxlength="20" />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrati</button>
+</form>
