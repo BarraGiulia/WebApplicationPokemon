@@ -9,8 +9,34 @@
 <div class="text-white">
     <p><strong>Nome:</strong> @Model.Nome</p>
     <p><strong>Città:</strong> @Model.Citta</p>
+    <p><strong>Tipo:</strong> @Model.TipoPalestra</p>
     <p><strong>Allenatori:</strong> @Model.Trainers.Count()</p>
-  
+
+    @if (Model.Trainers.Any())
+    {
+        <h5 class="mt-4">Livelli dei Pokémon degli Allenatori:</h5>
+        <ul>
+            @foreach (var trainer in Model.Trainers)
+            {
+                <li>
+                    <strong>@trainer.Nome:</strong>
+                    @if (trainer.Pokemons != null && trainer.Pokemons.Any())
+                    {
+                        <ul>
+                            @foreach (var p in trainer.Pokemons)
+                            {
+                                <li>@p.Nome (Lv. @p.Livello)</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span> Nessun Pokémon</span>
+                    }
+                </li>
+            }
+        </ul>
+    }
 </div>
 
 <a asp-action="Index" class="btn btn-primary rounded-pill mt-3">Torna alla lista</a>
