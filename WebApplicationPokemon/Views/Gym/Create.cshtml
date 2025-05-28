@@ -17,6 +17,22 @@
         <input asp-for="Citta" class="form-control" />
         <span asp-validation-for="Citta" class="text-danger"></span>
     </div>
+    <div class="mb-3">
+        <label asp-for="TipoPalestra" class="form-label">Tipo di Palestra</label>
+        <select asp-for="TipoPalestra" class="form-select">
+            <option value="">-- Seleziona Tipo --</option>
+            <option>Fuoco</option>
+            <option>Acqua</option>
+            <option>Erba</option>
+            <option>Elettro</option>
+            <option>Roccia</option>
+            <option>Psico</option>
+            <option>Drago</option>
+            <option>Buio</option>
+        </select>
+        <span asp-validation-for="TipoPalestra" class="text-danger"></span>
+    </div>
+
 
     <button type="submit" class="btn btn-success rounded-pill">Salva</button>
     <a asp-action="Index" class="btn btn-secondary rounded-pill ms-2">Annulla</a>

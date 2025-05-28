@@ -1,11 +1,6 @@
-﻿@{
+﻿@model List<WebApplicationPokemon.Models.Trainer>
+@{
     ViewData["Title"] = "Allenatori Pokémon";
-
-    var trainers = new List<dynamic> {
-    new { Id = 1, Nome = "Ash", Eta = 10, Citta = "Pallet Town", Gym = "Verde", Pokemons = 3 },
-    new { Id = 2, Nome = "Misty", Eta = 12, Citta = "Cerulean", Gym = "Acqua", Pokemons = 4 },
-    new { Id = 3, Nome = "Brock", Eta = 15, Citta = "Pewter", Gym = "Roccia", Pokemons = 2 }
-};
 }
 
 <div class="container py-5">
@@ -16,7 +11,7 @@
     </div>
 
     <div class="row g-4">
-        @foreach (var trainer in trainers)
+        @foreach (var trainer in Model)
         {
             <div class="col-md-4">
                 <div class="card bg-dark text-white border-light shadow rounded-4">
@@ -24,8 +19,8 @@
                         <h5 class="card-title text-info">@trainer.Nome</h5>
                         <p><strong>Età:</strong> @trainer.Eta</p>
                         <p><strong>Città:</strong> @trainer.Citta</p>
-                        <p><strong>Palestra:</strong> @trainer.Gym</p>
-                        <p><strong>Pokémon:</strong> @trainer.Pokemons</p>
+                        <p><strong>Palestra:</strong> @trainer.Gym?.Nome</p>
+                        <p><strong>Pokémon:</strong> @trainer.Pokemons?.Count</p>
 
                         <div class="d-flex gap-2 mt-3">
                             <a class="btn btn-primary rounded-pill" asp-action="Details" asp-route-id="@trainer.Id">Dettagli</a>

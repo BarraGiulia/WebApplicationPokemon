@@ -71,5 +71,6 @@ namespace WebApplicationPokemon.Controllers
             if (pokemon != null) pokemons.Remove(pokemon);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
