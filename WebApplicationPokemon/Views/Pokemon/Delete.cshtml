@@ -12,7 +12,7 @@
         <p>Tipo: @Model.Tipo</p>
         <p>Allenatore: @Model.Trainer?.Nome</p>
 
-        <form method="post" asp-action="DeleteConfirmed" class="mt-3">
+        <form method="post" asp-action="Delete" class="mt-3">
             <input type="hidden" asp-for="Id" />
             <button type="submit" class="btn btn-danger rounded-pill">Elimina</button>
             <a href="/Pokemon" class="btn btn-secondary rounded-pill ms-2">Annulla</a>
