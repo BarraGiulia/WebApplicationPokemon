@@ -19,14 +19,14 @@
       }
     },
     "https": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": null,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000;http://192.168.178.84:5002", //aggiungere il proprio ip della macchina usare  http://192.168.178.84:5002/ per accedere 
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "commandName": "Project",
+        "dotnetRunMessages": true,
+        "launchBrowser": true,
+        "applicationUrl": null,
+        "applicationUrl": "https://localhost:5001;http://localhost:5000;http://192.168.178.28:5002", //aggiungere il proprio ip della macchina usare  http://192.168.178.84:5002/ per accedere 
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
     },
     "IIS Express": {
       "commandName": "IISExpress",

@@ -12,6 +12,7 @@ namespace WebApplicationPokemon.Models
 
         [Required]
         public string Citta { get; set; }
+        public string TipoPalestra { get; set; }
 
         // Relazione: 1 Gym -> molti Trainer
         public ICollection<Trainer> Trainers { get; set; } = new List<Trainer>();

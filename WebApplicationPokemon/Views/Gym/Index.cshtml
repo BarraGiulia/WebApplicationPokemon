@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-warning">@gym.Nome</h5>
                             <p><strong>Città:</strong> @gym.Citta</p>
-                            <p><strong>Allenatori:</strong> @gym.Trainers?.Count() ?? 0</p>
+                            
 
                             <div class="d-flex gap-2 mt-3">
                                 <a class="btn btn-primary rounded-pill" href="@Url.Action("Details", "Gym", new { id = gym.Id })">Dettagli</a>
