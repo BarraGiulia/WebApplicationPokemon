@@ -1,20 +1,46 @@
-﻿@model WebApplicationPokemon.Models.Pokemon
+﻿@model WebApplicationPokemon.Models.Gym
 
 @{
-    ViewData["Title"] = "Dettagli Pokémon";
+    ViewData["Title"] = "Dettagli Palestra";
 }
 
-<div class="container py-5 text-white">
-    <h2 class="text-center mb-4">Dettagli Pokémon</h2>
+<h2 class="text-white mb-4">Dettagli Palestra</h2>
 
-    <div class="card bg-dark border-light shadow rounded-4 p-4">
-        <h3>@Model.Nome</h3>
-        <p><strong>Tipo:</strong> @Model.Tipo</p>
-        <p><strong>Livello:</strong> @Model.Livello</p>
-        <p><strong>Allenatore:</strong> @Model.Trainer?.Nome</p>
+<div class="text-white">
+    <p><strong>Nome:</strong> @Model.Nome</p>
+    <p><strong>Città:</strong> @Model.Citta</p>
+    <p><strong>Tipo:</strong> @(string.IsNullOrWhiteSpace(Model.TipoPalestra) ? "Non specificato" : Model.TipoPalestra)</p>
+    <p><strong>Allenatori:</strong> @Model.Trainers?.Count() ?? 0</p>
 
-        <div class="mt-4">
-            <a class="btn btn-secondary rounded-pill" href="/Pokemon">Torna indietro</a>
-        </div>
-    </div>
+    @if (Model.Trainers != null && Model.Trainers.Any())
+    {
+        <h5 class="mt-4">Allenatori e Pokémon:</h5>
+        <ul>
+            @foreach (var trainer in Model.Trainers)
+            {
+                <li class="mb-2">
+                    <strong>@trainer.Nome</strong>
+                    @if (trainer.Pokemons != null && trainer.Pokemons.Any())
+                    {
+                        <ul>
+                            @foreach (var p in trainer.Pokemons)
+                            {
+                                <li>@p.Nome (Lv. @p.Livello)</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span> - Nessun Pokémon</span>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Nessun allenatore registrato.</p>
+    }
 </div>
+
+<a asp-action="Index" class="btn btn-primary rounded-pill mt-3">Torna alla lista</a>

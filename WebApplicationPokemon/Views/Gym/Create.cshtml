@@ -8,38 +8,57 @@
 
 <form asp-action="Create" method="post" class="text-white">
     <div class="mb-3">
-        <label asp-for="Nome" class="form-label"></label>
+        <label asp-for="Nome" class="form-label">Nome</label>
         <input asp-for="Nome" class="form-control" />
         <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
-        <label asp-for="Citta" class="form-label"></label>
+        <label asp-for="Citta" class="form-label">Città</label>
         <input asp-for="Citta" class="form-control" />
         <span asp-validation-for="Citta" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
-        <label asp-for="TipoPalestra" class="form-label">Tipo di Palestra</label>
+        <label asp-for="TipoPalestra" class="form-label">Tipo</label>
         <select asp-for="TipoPalestra" class="form-select">
             <option value="">-- Seleziona Tipo --</option>
             <option>Fuoco</option>
             <option>Acqua</option>
             <option>Erba</option>
             <option>Elettro</option>
+            <option>Ghiaccio</option>
+            <option>Lotta</option>
             <option>Roccia</option>
+            <option>Veleno</option>
+            <option>Terra</option>
+            <option>Volante</option>
             <option>Psico</option>
+            <option>Coleottero</option>
+            <option>Spettro</option>
+            <option>Acciaio</option>
+            <option>Folletto</option>
             <option>Drago</option>
             <option>Buio</option>
         </select>
         <span asp-validation-for="TipoPalestra" class="text-danger"></span>
     </div>
 
+    <div class="mb-3">
+        <label asp-for="NumeroAllenatori" class="form-label">Numero Allenatori</label>
+        <input asp-for="NumeroAllenatori" type="number" class="form-control" />
+        <span asp-validation-for="NumeroAllenatori" class="text-danger"></span>
+    </div>
 
-    <button type="submit" class="btn btn-success rounded-pill">Salva</button>
-    <a asp-action="Index" class="btn btn-secondary rounded-pill ms-2">Annulla</a>
+    <div class="mb-3">
+        <label asp-for="NumeroTotalePokemon" class="form-label">Totale Pokémon</label>
+        <input asp-for="NumeroTotalePokemon" type="number" class="form-control" />
+        <span asp-validation-for="NumeroTotalePokemon" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salva</button>
 </form>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <partial name="_ValidationScriptsPartial" />
 }
