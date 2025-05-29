@@ -8,13 +8,28 @@
     <h2 class="text-center mb-4">Dettagli Pokémon</h2>
 
     <div class="card bg-dark border-light shadow rounded-4 p-4">
-        <h3>@Model.Nome</h3>
-        <p><strong>Tipo:</strong> @Model.Tipo</p>
+        <h3 class="text-warning">@Model.Nome</h3>
+        <p><strong>ID:</strong> @Model.Id</p>
+        <p><strong>Tipo:</strong> @(!string.IsNullOrEmpty(Model.Tipo) ? Model.Tipo : "Non specificato")</p>
         <p><strong>Livello:</strong> @Model.Livello</p>
-        <p><strong>Allenatore:</strong> @Model.Trainer?.Nome</p>
+
+        @if (Model.Trainer != null)
+        {
+            <p><strong>Allenatore:</strong> @Model.Trainer.Nome</p>
+
+            @if (Model.Trainer.Pokemons != null && Model.Trainer.Pokemons.Any())
+            {
+                var media = Model.Trainer.Pokemons.Average(p => p.Livello);
+                <p><strong>Livello Medio della Squadra:</strong> @Math.Round(media, 1)</p>
+            }
+        }
+        else
+        {
+            <p><strong>Allenatore:</strong> Nessun allenatore assegnato</p>
+        }
 
         <div class="mt-4">
-            <a class="btn btn-secondary rounded-pill" href="/Pokemon">Torna indietro</a>
+            <a class="btn btn-secondary rounded-pill" href="/Pokemon">Torna alla lista</a>
         </div>
     </div>
 </div>
