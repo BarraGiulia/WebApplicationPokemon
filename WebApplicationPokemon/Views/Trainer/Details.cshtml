@@ -1,4 +1,5 @@
 ﻿@model WebApplicationPokemon.Models.Trainer
+
 @{
     ViewData["Title"] = "Dettagli Allenatore";
 }
@@ -7,14 +8,12 @@
     <h2 class="text-center mb-4">Dettagli Allenatore</h2>
 
     <div class="card bg-dark border-light shadow rounded-4 p-4">
-        <h3>@Model.Nome</h3>
+        <h3 class="text-info">@Model.Nome</h3>
         <p><strong>Età:</strong> @Model.Eta</p>
         <p><strong>Città:</strong> @Model.Citta</p>
-        <p><strong>Palestra:</strong> @Model.Gym?.Nome</p>
-        <p><strong>Pokémon:</strong> @Model.Pokemons?.Count</p>
 
         <div class="mt-4">
-            <a asp-action="Index" class="btn btn-secondary rounded-pill">Torna indietro</a>
+            <a asp-action="Index" class="btn btn-secondary rounded-pill">Torna alla lista</a>
         </div>
     </div>
 </div>
