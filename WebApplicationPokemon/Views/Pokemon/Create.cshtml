@@ -13,9 +13,31 @@
             <input asp-for="Nome" class="form-control" />
         </div>
         <div class="mb-3">
-            <label>Tipo</label>
-            <input asp-for="Tipo" class="form-control" />
+            <label asp-for="Tipo" class="form-label">Tipo</label>
+            <select asp-for="Tipo" class="form-select">
+                <option value="">-- Seleziona Tipo --</option>
+                <option>Fuoco</option>
+                <option>Acqua</option>
+                <option>Erba</option>
+                <option>Elettro</option>
+                <option>Ghiaccio</option>
+                <option>Lotta</option>
+                <option>Roccia</option>
+                <option>Veleno</option>
+                <option>Terra</option>
+                <option>Volante</option>
+                <option>Psico</option>
+                <option>Coleottero</option>
+                <option>Spettro</option>
+                <option>Acciaio</option>
+                <option>Folletto</option>
+                <option>Drago</option>
+                <option>Buio</option>
+                <option>Normale</option>
+            </select>
+            <span asp-validation-for="Tipo" class="text-danger"></span>
         </div>
+
         <div class="mb-3">
             <label>Livello</label>
             <input asp-for="Livello" type="number" class="form-control" />
