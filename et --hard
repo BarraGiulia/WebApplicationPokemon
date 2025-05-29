@@ -1,0 +1,31 @@
+[33m70acc53[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mBarra[m[33m, [m[1;31morigin/Barra[m[33m)[m cambiato ip da locale all'ip della macchina
+[33mb1746fc[m ricerca delle palestre funzionante
+[33me93bd54[m login/logout funzionante
+[33m0d1e0ed[m aggiunto database funzionante  (mancano alcuni pulsanti che deve fare jacopo)
+[33md6782e5[m cambiato la pagina di default che si apre appena si prende il sito, da trainer a  home
+[33m1a56faf[m Merge pull request #8 from BarraGiulia/master
+[33m2a6ba87[m Merge pull request #7
+[33m3ef918e[m aggiustato problema trainer
+[33ma6c8de1[m commit pokemon
+[33m9ac9e1d[m commit trainer
+[33m488818e[m commit di backup trainer
+[33mae26675[m add, delete, modify
+[33m1530b31[m add gym
+[33m044406b[m commit di backup
+[33m559d61c[m Merge branch 'Lucchese' into master
+[33m1d4ff0e[m merge x jacopo
+[33m1b17026[m Merge pull request #4 from BarraGiulia/Barra
+[33m451667b[m creato la base html di trainer gym e pokemon insieme ai loro crud
+[33mb08de70[m cambiato certe cose che non funzionava nulla
+[33m7b7a09f[m aggiunto informazioni, aggiunto cose astetiche + aggiustato altri problemi + tolto footer
+[33m9af3fb0[m home progetto di base fatto +  aggiunto parte informativa tutto in basso + cambiato nel header i tre pulsanti (provato a farlo a tendina, non sono riuscita) +  aggiustato alcuni problemi
+[33mdd6f8c5[m aggiunto parte sotto le immagini, piccolo titolo con tre card + link alle pagine + animazioni + immagini piccole dentro
+[33m4153cd1[m creato immagini che si muoov + titolo e breve descrizione, nell'header aggiunto tre ulsanti a sinistra (che portano alle loro pagine) e a destra pulsante login/logout ( che deve essere ancora creato e implementato)
+[33mdb19a2b[m ho messo il 2
+[33md2e64e5[m Tutte cartelle per lucchese
+[33m9abb276[m Tutte cartelle per jacopo
+[33m89affef[m[33m ([m[1;32mmaster[m[33m)[m Merge pull request #1 from BarraGiulia/Barra
+[33m4b35ae7[m  creazione file e cartelle
+[33m8a74cdb[m[33m ([m[1;32mnome-del-tuo-branch[m[33m, [m[1;32mJacopo[m[33m)[m prova n.1
+[33m416b9d7[m Add project files.
+[33mc42c864[m Add .gitattributes and .gitignore.

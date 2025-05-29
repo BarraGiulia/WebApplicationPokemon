@@ -1,4 +1,5 @@
 ﻿@model List<WebApplicationPokemon.Models.Trainer>
+
 @{
     ViewData["Title"] = "Allenatori Pokémon";
 }
@@ -17,10 +18,9 @@
                 <div class="card bg-dark text-white border-light shadow rounded-4">
                     <div class="card-body">
                         <h5 class="card-title text-info">@trainer.Nome</h5>
-                        <p><strong>Età:</strong> @trainer.Eta</p>
+                        
                         <p><strong>Città:</strong> @trainer.Citta</p>
-                        <p><strong>Palestra:</strong> @trainer.Gym?.Nome</p>
-                        <p><strong>Pokémon:</strong> @trainer.Pokemons?.Count</p>
+                       
 
                         <div class="d-flex gap-2 mt-3">
                             <a class="btn btn-primary rounded-pill" asp-action="Details" asp-route-id="@trainer.Id">Dettagli</a>
